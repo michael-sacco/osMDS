@@ -1,3 +1,3 @@
 # osMDS
- A tiny multi-directional shooter
- Bulit to WebGL on Itch.Io: https://occasoftware.itch.io/osmds
+ A tiny multi-directional shooter. \
+ Built to WebGL on Itch.Io: https://occasoftware.itch.io/osmds
