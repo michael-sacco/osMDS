@@ -11,8 +11,8 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField]
     private BoundaryController2D boundaryController2D = null;
 
-    [SerializeField]
-    private Transform playerTransform = null;
+    [SerializeField] private Transform playerTransform = null;
+    [SerializeField] private PlayerEntity playerEntity;
 
     [SerializeField]
     private int minNumberOfAsteroids = 3;
@@ -39,16 +39,33 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField]
     private AudioClip onAsteroidDestroyedSound;
 
+    [SerializeField] private float initialDelay = 2f;
+    private float timer = 0f;
+
     private void Start()
     {
+        timer = 0f;
         asteroidsKilled = 0;
         asteroidCount = 0;
         maxAsteroidCount = minNumberOfAsteroids;
+        playerEntity.onPlayerDie += DestroySelf;
     }
+
+    void DestroySelf()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        if (timer < initialDelay)
+        {
+            timer += Time.deltaTime;
+            return;
+        }
+
         if(playerTransform != null)
             AsteroidManagement();
     }
@@ -68,6 +85,7 @@ public class AsteroidSpawner : MonoBehaviour
     {
         maxAsteroidCount = (int)Mathf.Lerp((float)minNumberOfAsteroids, (float)maxNumberOfAsteroids, ((float)AsteroidsKilled / (float)asteroidRemap));
     }
+
 
     bool CreateNewAsteroid()
     {

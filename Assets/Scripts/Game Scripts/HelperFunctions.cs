@@ -12,6 +12,12 @@ public static class HelperFunctions
         Bullet
     }
 
+    public enum EntityState
+    {
+        Alive,
+        Dead
+    }
+
 
     public static bool NotifyHitByTag(Collision2D collision, EntityType type, GameObject thisGameObject)
     {

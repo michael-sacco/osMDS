@@ -16,6 +16,8 @@ public class BoundaryController2D : MonoBehaviour
     private float discSize = 0.5f;
     public float DiscSize { get { return discSize; } }
 
+    [SerializeField] private bool updateOverTime = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,14 @@ public class BoundaryController2D : MonoBehaviour
 
     private void Update()
     {
+        UpdateRadius();
+    }
+
+    void UpdateRadius()
+    {
+        if (!updateOverTime)
+            return;
+
         float tempRadius = Mathf.Clamp01(Mathf.PerlinNoise(Time.time * 0.1f, 0f)) * 5.0f + boundaryRadius;
         SetScaleFromRadius(tempRadius);
     }

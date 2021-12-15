@@ -10,7 +10,7 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
     private int maxHP = 5;
     [SerializeField]
     private int currentHP = 5;
-
+    
     public int CurrentHP { get { return currentHP; } }
 
     [SerializeField]
@@ -24,6 +24,9 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
 
     private float spawnTime = 0f;
     public float AliveTime { get { return Time.time - spawnTime; } }
+
+    private EntityState entityState = EntityState.Alive;
+    public EntityState EntityState { get { return entityState; } }
 
     public Action onPlayerDie;
 
@@ -39,6 +42,7 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
     // Start is called before the first frame update
     void Start()
     {
+        entityState = EntityState.Alive;
         currentHP = maxHP;
         spawnTime = Time.time;
         asteroidSpawner.onAsteroidKilledByPlayer += AsteroidKilledByPlayer;
@@ -93,7 +97,8 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
     private void Die()
     {
         onPlayerDie();
-        Destroy(gameObject);
+        entityState = EntityState.Dead;
+        gameObject.SetActive(false);
     }
 
 

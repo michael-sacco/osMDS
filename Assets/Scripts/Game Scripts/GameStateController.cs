@@ -16,13 +16,11 @@ public class GameStateController : MonoBehaviour
 
     void OnPlayerDie()
     {
-        Debug.Log("Called On Player Die");
-        StartCoroutine(ResetLevel());
+        DebugLogPlayerDeath();
     }
 
-    IEnumerator ResetLevel()
+    void DebugLogPlayerDeath()
     {
-        yield return new WaitForSecondsRealtime(2);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Called On Player Die");
     }
 }
