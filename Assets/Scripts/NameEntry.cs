@@ -12,6 +12,7 @@ public class NameEntry : MonoBehaviour
     [SerializeField] GameObject startUICanvas;
 
 
+
     void Update()
     {
         foreach (char c in Input.inputString)
