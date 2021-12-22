@@ -17,6 +17,9 @@ public class PlayerController2D : MonoBehaviour
     [SerializeField]
     private float maxVelocity = 1f;
 
+    public float MaxVelocity { get { return maxVelocity; } }
+    public float Speed { get { return Vector3.Magnitude(Velocity); } }
+    public float Speed01 { get { return Speed / MaxVelocity; } }
 
     
     void Update()

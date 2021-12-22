@@ -18,12 +18,14 @@ public class SetAimDirectionController2D : MonoBehaviour
     [SerializeField]
     private AudioClip onShootSound = null;
     private AudioSource audioSource = null;
+    private float audioSourceVolume = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
+        audioSourceVolume = audioSource.volume;
     }
 
     // Update is called once per frame
@@ -63,7 +65,7 @@ public class SetAimDirectionController2D : MonoBehaviour
 
     private void PlayShootSound()
     {
-        float volume = Random.Range(0.8f, 1.0f);
+        float volume = Random.Range(0.8f * audioSourceVolume, audioSourceVolume);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.PlayOneShot(onShootSound, volume);
     }

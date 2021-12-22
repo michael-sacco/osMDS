@@ -1509,7 +1509,7 @@ MonoBehaviour:
   maxNumberOfAsteroids: 20
   asteroidRemap: 200
   playerBufferDistance: 3
-  onAsteroidDestroyedSound: {fileID: 8300000, guid: a75cd84a4c823684dbc4504e1e362fae,
+  onAsteroidDestroyedSound: {fileID: 8300000, guid: a0c343a2a00c79f41bf599e5cb1e8850,
     type: 3}
   initialDelay: 1
 --- !u!82 &622494874
@@ -6171,6 +6171,7 @@ GameObject:
   - component: {fileID: 2015069365}
   - component: {fileID: 2015069364}
   - component: {fileID: 2015069366}
+  - component: {fileID: 2015069367}
   m_Layer: 0
   m_Name: Name Entry
   m_TagString: Untagged
@@ -6312,6 +6313,104 @@ MonoBehaviour:
   gameplayContainer: {fileID: 522610056}
   gameplayUI: {fileID: 1115837480}
   startUICanvas: {fileID: 1575058674}
+  audioClip: {fileID: 8300000, guid: 92dcf462e633d63498e62a74717b4387, type: 3}
+  audioSource: {fileID: 2015069367}
+--- !u!82 &2015069367
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015069362}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 92dcf462e633d63498e62a74717b4387, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2033240845
 GameObject:
   m_ObjectHideFlags: 0
@@ -6890,17 +6989,12 @@ PrefabInstance:
         type: 3}
       propertyPath: onPlayerDamageSound
       value: 
-      objectReference: {fileID: 8300000, guid: 4dc02320eebd4df4f8ceb2a7f2e98295, type: 3}
+      objectReference: {fileID: 8300000, guid: 93d9dd01c69f5dc469037f19cf9dca82, type: 3}
     - target: {fileID: 5185718128229363180, guid: c0bc4242eb36d0743a2bc67f956d8698,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5185718128229363182, guid: c0bc4242eb36d0743a2bc67f956d8698,
-        type: 3}
-      propertyPath: onShootSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ff2daf2ecd1379e498a0735827b4726f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0bc4242eb36d0743a2bc67f956d8698, type: 3}
 --- !u!1001 &6838452871879286666

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(AudioSource))]
 public class AsteroidSpawner : MonoBehaviour
 {
     [SerializeField]
@@ -42,6 +43,9 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] private float initialDelay = 2f;
     private float timer = 0f;
 
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         timer = 0f;
@@ -49,6 +53,7 @@ public class AsteroidSpawner : MonoBehaviour
         asteroidCount = 0;
         maxAsteroidCount = minNumberOfAsteroids;
         playerEntity.onPlayerDie += DestroySelf;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void DestroySelf()
@@ -131,6 +136,7 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void PlayAsteroidDestroyedSound()
     {
-        GetComponent<AudioSource>().PlayOneShot(onAsteroidDestroyedSound);
+        audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(onAsteroidDestroyedSound, UnityEngine.Random.Range(0.8f, 1f));
     }
 }

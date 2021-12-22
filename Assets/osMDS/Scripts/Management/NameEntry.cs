@@ -11,7 +11,14 @@ public class NameEntry : MonoBehaviour
     [SerializeField] GameObject gameplayUI;
     [SerializeField] GameObject startUICanvas;
 
+    [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioSource audioSource;
+    private float audioSourceVolume;
 
+    private void Start()
+    {
+        audioSourceVolume = audioSource.volume;
+    }
 
     void Update()
     {
@@ -27,6 +34,7 @@ public class NameEntry : MonoBehaviour
             if (nameInput.text.Length != 0)
             {
                 nameInput.text = nameInput.text.Substring(0, nameInput.text.Length - 1);
+                PlayClickAudio();
             }
         }
         else if ((c == '\n') || (c == '\r')) // enter/return
@@ -34,6 +42,7 @@ public class NameEntry : MonoBehaviour
             if(nameInput.text.Length != 0)
             {
                 Debug.Log("on name submit");
+                PlayClickAudio();
                 OnNameSubmit();
             }
         }
@@ -41,6 +50,7 @@ public class NameEntry : MonoBehaviour
         {
             if(nameInput.text.Length < 5)
             {
+                PlayClickAudio();
                 nameInput.text += c;
             }
         }
@@ -62,4 +72,8 @@ public class NameEntry : MonoBehaviour
         gameplayUI.SetActive(true);
     }
 
+    private void PlayClickAudio()
+    {
+        audioSource.PlayOneShot(audioClip, Random.Range(0.8f * audioSourceVolume, audioSourceVolume));
+    }
 }
