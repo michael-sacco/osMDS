@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,10 +56,12 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,6 +86,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!60 &8618700316668101701
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -143,6 +147,9 @@ MonoBehaviour:
   asteroidDestroyedParticleSystem: {fileID: 5485088067182118285, guid: 31f58d43b9bb2d44e96e60165ad4e595,
     type: 3}
   entityType: 2
+  healthDrop: {fileID: 3473860345001407027, guid: 026b6ac7cc76fe943b1ef93131ec2f3a,
+    type: 3}
+  healthDropRatePercent: 5
 --- !u!50 &8671385440448650307
 Rigidbody2D:
   serializedVersion: 4

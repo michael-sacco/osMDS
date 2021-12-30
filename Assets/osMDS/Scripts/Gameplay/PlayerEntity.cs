@@ -6,10 +6,8 @@ using static HelperFunctions;
 
 public class PlayerEntity : MonoBehaviour, LivingEntity
 {
-    [SerializeField]
-    private int maxHP = 5;
-    [SerializeField]
-    private int currentHP = 5;
+    [SerializeField] private int maxHP = 5;
+    [SerializeField] private int currentHP = 5;
     
     public int CurrentHP { get { return currentHP; } }
 
@@ -18,6 +16,8 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
 
     [SerializeField]
     private int damageFromBoundary = 999;
+
+    [SerializeField] private int healthFromDrop = 1;
 
     [SerializeField]
     private GameObject takeDamageParticleSystem = null;
@@ -45,7 +45,7 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
         entityState = EntityState.Alive;
         currentHP = maxHP;
         spawnTime = Time.time;
-        asteroidSpawner.onAsteroidKilledByPlayer += AsteroidKilledByPlayer;
+        //asteroidSpawner.onAsteroidKilledByPlayer += AsteroidKilledByPlayer;
     }
 
     private void AsteroidKilledByPlayer(int totalCount)
@@ -63,6 +63,9 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
                 break;
             case EntityType.Boundary:
                 HitBoundary();
+                break;
+            case EntityType.Drop:
+                HitDrop();
                 break;
             default:
                 break;
@@ -82,6 +85,16 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
     public void HitBoundary()
     {
         TakeDamage(damageFromBoundary);
+    }
+
+    public void HitDrop()
+    {
+        ReceiveHealth(healthFromDrop);
+    }
+
+    private void ReceiveHealth(int hp)
+    {
+        currentHP = Mathf.Min(currentHP + hp, maxHP);
     }
 
     private void TakeDamage(int dmg)

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RestartGame : MonoBehaviour
+public class ReloadScene : MonoBehaviour
 {
     [SerializeField] PlayerEntity playerEntity;
     
     void Update()
     {
-        ReloadScene();
+        DoReload();
     }
 
-    void ReloadScene()
+    void DoReload()
     {
         if (Input.GetKeyDown(KeyCode.R) && playerEntity.EntityState == HelperFunctions.EntityState.Dead)
         {

@@ -20,6 +20,9 @@ public class SetAimDirectionController2D : MonoBehaviour
     private AudioSource audioSource = null;
     private float audioSourceVolume = 1.0f;
 
+    private float nextShotTime = 0.0f;
+    [SerializeField] private float timeBetweenShots = 0.05f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +59,10 @@ public class SetAimDirectionController2D : MonoBehaviour
 
     private void Shoot(float angle)
     {
-        if (!Input.GetMouseButtonDown(0)) return;
+        if (!Input.GetMouseButton(0)) return;
+        if (Time.time < nextShotTime) return;
+
+        nextShotTime = Time.time + timeBetweenShots;
 
         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
         newBullet.GetComponent<ProjectileController2D>().InheritVelocity(GetComponent<PlayerController2D>().Velocity);

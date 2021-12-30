@@ -24,7 +24,6 @@ public class ProjectileController2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(this + " collision enter -> " + collision.gameObject.name);
         if (collision.gameObject.TryGetComponent(out LivingEntity entity))
         {
             GetComponent<LivingEntity>().HitBy(entity.GetEntityType());

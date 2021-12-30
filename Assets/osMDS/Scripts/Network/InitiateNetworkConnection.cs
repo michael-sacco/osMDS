@@ -9,6 +9,16 @@ public class InitiateNetworkConnection : MonoBehaviour
     public static string playerName = "";
     public string networkState = "";
 
+    [SerializeField] NameEntry nameEntry;
+    private void OnEnable()
+    {
+        nameEntry.onNameSubmit += SetName;
+    }
+
+    private void OnDisable()
+    {
+        nameEntry.onNameSubmit -= SetName;
+    }
 
     void Start()
     {
@@ -26,5 +36,10 @@ public class InitiateNetworkConnection : MonoBehaviour
 
             networkState = "Successfully connected.";
         });
+    }
+
+    void SetName(string name)
+    {
+        playerName = name;
     }
 }
