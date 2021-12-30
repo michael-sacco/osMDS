@@ -2,28 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class NameEntry : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI nameInput;
-    [SerializeField] GameObject gameplayContainer;
-    [SerializeField] GameObject gameplayUI;
-    [SerializeField] GameObject startUICanvas;
 
     [SerializeField] AudioClip audioClip;
     [SerializeField] AudioSource audioSource;
+
     private float audioSourceVolume;
+    public Action<string> onNameSubmit;
+    private bool isPostSubmit = false;
 
     private void Start()
     {
         audioSourceVolume = audioSource.volume;
         PlayerData playerData = SaveSystem.LoadPlayer();
-        nameInput.text = playerData.name;
+        if(playerData != null)
+        {
+            nameInput.text = playerData.name;
+        }
     }
 
     void Update()
     {
+        if (isPostSubmit)
+            return;
+
         foreach (char c in Input.inputString)
             CharacterHandling(c);
     }
@@ -43,9 +51,10 @@ public class NameEntry : MonoBehaviour
         {
             if(nameInput.text.Length != 0)
             {
-                Debug.Log("on name submit");
                 PlayClickAudio();
-                OnNameSubmit();
+                SetUIColor();
+                isPostSubmit = true;
+                onNameSubmit(nameInput.text);
             }
         }
         else
@@ -58,25 +67,14 @@ public class NameEntry : MonoBehaviour
         }
     }
 
-    void OnNameSubmit()
+    void SetUIColor()
     {
-        InitiateNetworkConnection.playerName = nameInput.text;
-        SaveSystem.SavePlayerName();
         nameInput.color = new Color(0f, 1.0f, 1.0f);
-        StartCoroutine(StartGame());
     }
 
-
-    IEnumerator StartGame()
-    {
-        startUICanvas.GetComponent<FadeCanvasGroup>().ExecuteCrossfade(0f, 1f);
-        yield return new WaitForSeconds(1);
-        gameplayContainer.SetActive(true);
-        gameplayUI.SetActive(true);
-    }
 
     private void PlayClickAudio()
     {
-        audioSource.PlayOneShot(audioClip, Random.Range(0.8f * audioSourceVolume, audioSourceVolume));
+        audioSource.PlayOneShot(audioClip, UnityEngine.Random.Range(0.8f * audioSourceVolume, audioSourceVolume));
     }
 }

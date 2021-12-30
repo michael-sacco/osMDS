@@ -6,12 +6,12 @@ public static class SaveSystem
 {
     private static string pathName = "/player.xd";
 
-    public static void SavePlayerName()
+    public static void SavePlayerName(string name)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + pathName;
         FileStream stream = new FileStream(path, FileMode.Create);
-        PlayerData data = new PlayerData();
+        PlayerData data = new PlayerData(name);
 
         formatter.Serialize(stream, data);
         stream.Close();

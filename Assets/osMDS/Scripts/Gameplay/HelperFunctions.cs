@@ -9,7 +9,8 @@ public static class HelperFunctions
         Player,
         Boundary,
         Asteroid,
-        Bullet
+        Bullet,
+        Drop
     }
 
     public enum EntityState

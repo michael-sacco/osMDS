@@ -14,8 +14,9 @@ public class AsteroidEntity : MonoBehaviour, LivingEntity
     private int maxHP = 1;
     private int currentHP = 1;
 
-    [SerializeField]
-    EntityType entityType = EntityType.Asteroid;
+    [SerializeField] EntityType entityType = EntityType.Asteroid;
+    [SerializeField] private GameObject healthDrop;
+    [SerializeField, Range(0f, 100f)] private float healthDropRatePercent = 20f;
 
     private void Start()
     {
@@ -60,6 +61,15 @@ public class AsteroidEntity : MonoBehaviour, LivingEntity
 
     private void Die(EntityType type)
     {
+        if(type == EntityType.Bullet)
+        {
+            float random = UnityEngine.Random.Range(0f, 100f);
+            if (random <= healthDropRatePercent)
+            {
+                Instantiate(healthDrop, transform.position, Quaternion.identity);
+            }
+        }
+
         onDestroyAsteroid(type);
         Destroy(gameObject);
     }
