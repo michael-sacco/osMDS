@@ -149,7 +149,7 @@ MonoBehaviour:
   entityType: 2
   healthDrop: {fileID: 3473860345001407027, guid: 026b6ac7cc76fe943b1ef93131ec2f3a,
     type: 3}
-  healthDropRatePercent: 100
+  healthDropRatePercent: 5
 --- !u!50 &8671385440448650307
 Rigidbody2D:
   serializedVersion: 4

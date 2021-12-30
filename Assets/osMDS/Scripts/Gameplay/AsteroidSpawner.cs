@@ -131,7 +131,7 @@ public class AsteroidSpawner : MonoBehaviour
     private void PlayedKilledAsteroid()
     {
         AddScore(1);
-        onAsteroidKilledByPlayer(AsteroidsKilled);
+        //onAsteroidKilledByPlayer(AsteroidsKilled);
     }
 
     private void PlayAsteroidDestroyedSound()

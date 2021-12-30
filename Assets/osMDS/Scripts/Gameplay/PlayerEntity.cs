@@ -45,7 +45,7 @@ public class PlayerEntity : MonoBehaviour, LivingEntity
         entityState = EntityState.Alive;
         currentHP = maxHP;
         spawnTime = Time.time;
-        asteroidSpawner.onAsteroidKilledByPlayer += AsteroidKilledByPlayer;
+        //asteroidSpawner.onAsteroidKilledByPlayer += AsteroidKilledByPlayer;
     }
 
     private void AsteroidKilledByPlayer(int totalCount)
