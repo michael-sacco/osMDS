@@ -18,6 +18,8 @@ public class NameEntry : MonoBehaviour
     private void Start()
     {
         audioSourceVolume = audioSource.volume;
+        PlayerData playerData = SaveSystem.LoadPlayer();
+        nameInput.text = playerData.name;
     }
 
     void Update()
@@ -59,6 +61,7 @@ public class NameEntry : MonoBehaviour
     void OnNameSubmit()
     {
         InitiateNetworkConnection.playerName = nameInput.text;
+        SaveSystem.SavePlayerName();
         nameInput.color = new Color(0f, 1.0f, 1.0f);
         StartCoroutine(StartGame());
     }
