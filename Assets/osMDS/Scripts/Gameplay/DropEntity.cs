@@ -16,7 +16,6 @@ public class DropEntity : MonoBehaviour, LivingEntity
         UpdateAge();
     }
 
-
     void UpdateAge()
     {
         age += Time.deltaTime;

@@ -8,6 +8,7 @@ public class GameplayStartHandler : MonoBehaviour
     [SerializeField] private NameEntry nameEntry;
     [SerializeField] private GameObject gameplayContainer;
     [SerializeField] private GameObject gameplayUI;
+    [SerializeField] private GameObject environment;
 
     private void OnEnable()
     {
@@ -26,10 +27,21 @@ public class GameplayStartHandler : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        startUICanvas.GetComponent<FadeCanvasGroup>().ExecuteCrossfade(0f, 1f);
-        yield return new WaitForSeconds(1);
+        float crossFadeDuration = 1f;
+        startUICanvas.GetComponent<FadeCanvasGroup>().ExecuteCrossfade(0f, crossFadeDuration);
+        yield return new WaitForSeconds(crossFadeDuration);
         startUICanvas.SetActive(false);
         gameplayContainer.SetActive(true);
         gameplayUI.SetActive(true);
+        environment.SetActive(true);
+    }
+
+    IEnumerator Sample()
+    {
+        while (true)
+        {
+            //Dosomething
+            yield return null;
+        }
     }
 }

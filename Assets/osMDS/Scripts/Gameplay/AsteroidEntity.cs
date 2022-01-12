@@ -38,7 +38,7 @@ public class AsteroidEntity : MonoBehaviour, LivingEntity
                 break;
             default:
                 break;
-        }   
+        }
     }
 
     public EntityType GetEntityType()

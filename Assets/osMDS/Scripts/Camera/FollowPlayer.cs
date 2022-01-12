@@ -29,6 +29,8 @@ public class FollowPlayer : MonoBehaviour
         Vector2 playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         Vector2 targetPos = Vector2.Lerp(playerPos, mousePos, mouseInfluenceAmount);
 
+        
+
         Vector2 currentPos = new Vector2(transform.position.x, transform.position.y);
         Vector2 cameraTarget = Vector2.Lerp(currentPos, targetPos, camLerpAdj);
         transform.position = new Vector3(cameraTarget.x, cameraTarget.y, transform.position.z);
