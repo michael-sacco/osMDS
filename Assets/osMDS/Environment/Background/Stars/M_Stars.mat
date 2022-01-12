@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Stars
-  m_Shader: {fileID: -6465566751694194690, guid: 48a148df706a3cd4ebdc24dd725ef457,
+  m_Shader: {fileID: -6465566751694194690, guid: ddb1b5045e9a1e3488778ff78a8bc8bd,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -98,6 +98,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Offset_Speed: 0.5
+    - _Origin: -0.4
     - _Parallax: 0.005
     - _Power: 70
     - _QueueControl: 0
@@ -107,15 +108,18 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Speed: 0.02
+    - _Spread: 1
     - _SrcBlend: 1
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BottomColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _TopColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8431194669208484358
 MonoBehaviour:
