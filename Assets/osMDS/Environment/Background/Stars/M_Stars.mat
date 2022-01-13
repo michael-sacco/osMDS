@@ -86,12 +86,12 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Density: 50
+    - _Density: 40
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Falloff: 30
+    - _Falloff: 60
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -116,10 +116,13 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BottomColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.3739587, g: 0.40580764, b: 0.4433962, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Star_Color: {r: 0.5403169, g: 0.58007544, b: 0.6132076, a: 0}
     - _TopColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Turbulence_Inner: {r: 0.213, g: 0.101584606, b: 0.19661537, a: 0}
+    - _Turbulence_Outer: {r: 0.06895774, g: 0.053559985, b: 0.16037738, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8431194669208484358
 MonoBehaviour:
